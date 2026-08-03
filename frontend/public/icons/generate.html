@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate PWA Icons</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f4f8; padding: 20px; text-align: center; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        button { padding: 12px 24px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; margin: 10px; }
+        button:hover { background: #1d4ed8; }
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0; }
+        .item { background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .item canvas { display: block; margin: 0 auto; }
+        .item .label { margin-top: 8px; font-size: 12px; color: #64748b; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 6px; background: #dcfce7; color: #166534; display: none; }
+        .status.show { display: block; }
+        .instructions { text-align: left; background: #f8fafc; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .instructions code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Generate PWA Icons</h1>
+        <p>Click button below to generate and download all icons</p>
+        
+        <div id="status" class="status">✅ Icons generated successfully!</div>
+        
+        <button onclick="generateAndDownload()">🚀 Generate & Download All</button>
+        
+        <div class="grid" id="iconGrid"></div>
+        
+        <div class="instructions">
+            <h3>📋 Instructions:</h3>
+            <ol>
+                <li>Click <strong>"Generate & Download All"</strong></li>
+                <li>All icons will be downloaded automatically</li>
+                <li>Move all icon files to: <code>public/icons/</code></li>
+                <li>Restart your dev server: <code>npm run dev</code></li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+        const iconData = {};
+
+        function generateIcon(size) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const grad = ctx.createLinearGradient(0, 0, size, size);
+            grad.addColorStop(0, '#4F46E5');
+            grad.addColorStop(0.5, '#6366F1');
+            grad.addColorStop(1, '#1E3A8A');
+            ctx.fillStyle = grad;
+            
+            // Rounded rectangle
+            const radius = size * 0.2;
+            ctx.beginPath();
+            ctx.moveTo(radius, 0);
+            ctx.lineTo(size - radius, 0);
+            ctx.quadraticCurveTo(size, 0, size, radius);
+            ctx.lineTo(size, size - radius);
+            ctx.quadraticCurveTo(size, size, size - radius, size);
+            ctx.lineTo(radius, size);
+            ctx.quadraticCurveTo(0, size, 0, size - radius);
+            ctx.lineTo(0, radius);
+            ctx.quadraticCurveTo(0, 0, radius, 0);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Shadow effect
+            ctx.shadowColor = 'rgba(0,0,0,0.2)';
+            ctx.shadowBlur = size * 0.05;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = size * 0.02;
+            
+            // Text "IN"
+            ctx.shadowColor = 'transparent';
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${size * 0.42}px Arial, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Shadow for text
+            ctx.shadowColor = 'rgba(0,0,0,0.2)';
+            ctx.shadowBlur = size * 0.03;
+            ctx.fillText('IN', size/2, size/2 + size * 0.02);
+            
+            // Box icon inside
+            ctx.shadowColor = 'transparent';
+            ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+            ctx.lineWidth = size * 0.02;
+            const boxSize = size * 0.35;
+            const boxX = (size - boxSize) / 2;
+            const boxY = size * 0.52;
+            ctx.strokeRect(boxX, boxY, boxSize, boxSize * 0.7);
+            
+            return canvas;
+        }
+
+        function downloadIcon(canvas, filename) {
+            return new Promise((resolve) => {
+                const link = document.createElement('a');
+                link.download = filename;
+                link.href = canvas.toDataURL('image/png');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                resolve();
+            });
+        }
+
+        async function generateAndDownload() {
+            const grid = document.getElementById('iconGrid');
+            const status = document.getElementById('status');
+            grid.innerHTML = '';
+            
+            status.className = 'status';
+            status.textContent = '⏳ Generating icons...';
+            
+            for (const size of sizes) {
+                const canvas = generateIcon(size);
+                iconData[size] = canvas;
+                
+                // Preview
+                const div = document.createElement('div');
+                div.className = 'item';
+                
+                const preview = document.createElement('canvas');
+                preview.width = size;
+                preview.height = size;
+                preview.style.width = Math.min(size, 64) + 'px';
+                preview.style.height = Math.min(size, 64) + 'px';
+                preview.getContext('2d').drawImage(canvas, 0, 0, preview.width, preview.height);
+                
+                const label = document.createElement('div');
+                label.className = 'label';
+                label.textContent = size + 'x' + size;
+                
+                div.appendChild(preview);
+                div.appendChild(label);
+                grid.appendChild(div);
+                
+                await new Promise(r => setTimeout(r, 50));
+            }
+            
+            status.className = 'status show';
+            status.textContent = '✅ Icons generated! Downloading...';
+            
+            // Download all icons
+            for (const size of sizes) {
+                await downloadIcon(iconData[size], `icon-${size}x${size}.png`);
+                await new Promise(r => setTimeout(r, 100));
+            }
+            
+            status.textContent = '✅ All icons downloaded! Place them in public/icons/ folder';
+            
+            setTimeout(() => {
+                alert('✅ All icons downloaded!\n\nPlease move all icon files to:\npublic/icons/\n\nThen restart your dev server.');
+            }, 500);
+        }
+    </script>
+</body>
+</html>
