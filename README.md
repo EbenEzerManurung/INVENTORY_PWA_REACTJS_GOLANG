@@ -1,108 +1,116 @@
-📦 Inventory Management System
-A complete Inventory Management System built with React.js, Golang, and MySQL — designed for efficient stock tracking, transaction management, and real-time reporting.
+# 📦 Inventory Management System
 
-https://img.shields.io/badge/React-19.2.8-61DAFB?style=flat&logo=react
-https://img.shields.io/badge/Go-1.21-00ADD8?style=flat&logo=go
-https://img.shields.io/badge/TailwindCSS-3.4.17-06B6D4?style=flat&logo=tailwindcss
-https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat&logo=mysql
-https://img.shields.io/badge/PWA-Ready-5A0FC8?style=flat&logo=pwa
-✨ Key Features
-📊 Dashboard & Analytics
-Real-time dashboard with key metrics (Total Products, Stock, Transactions)
+> A complete Inventory Management System built with **React.js**, **Golang**, and **MySQL** — designed for efficient stock tracking, transaction management, and real-time reporting.
 
-Interactive charts and graphs for stock trends
+<div align="center">
 
-Summary cards for quick insights
+![React](https://img.shields.io/badge/React-19.2.8-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Go](https://img.shields.io/badge/Go-1.21-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.17-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![PWA](https://img.shields.io/badge/PWA-Ready-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
 
-📦 Product Management
-Full CRUD operations for products
+</div>
 
-Product image upload with preview
+---
 
-Search, filter, and pagination
+## 📑 Table of Contents
+- [✨ Key Features](#-key-features)
+- [🚀 Tech Stack](#-tech-stack)
+- [📊 Database Schema](#-database-schema)
+- [🏗️ Project Structure](#️-project-structure)
+- [🛠️ Installation](#️-installation)
+- [👥 User Roles](#-user-roles)
+- [🤖 AI Chatbot](#-ai-chatbot)
+- [📸 Screenshots](#-screenshots)
+- [🤝 Contributing](#-contributing)
+- [📝 License](#-license)
 
-Export products to Excel
+---
 
-📋 Stock Management
-Real-time stock tracking
+## ✨ Key Features
 
-Low stock alerts and notifications
+### 📊 **Dashboard & Analytics**
+- Real-time dashboard with key metrics (Total Products, Stock, Transactions)
+- Interactive charts and graphs for stock trends
+- Summary cards for quick insights
 
-Stock adjustment history
+### 📦 **Product Management**
+- Full CRUD operations for products
+- Product image upload with preview
+- Search, filter, and pagination
+- Export products to Excel
 
-Export stock reports to Excel
+### 📋 **Stock Management**
+- Real-time stock tracking
+- Low stock alerts and notifications
+- Stock adjustment history
+- Export stock reports to Excel
 
-📥 Transaction Management
-Transaction In – Add stock entries with product search
+### 📥 **Transaction Management**
+- **Transaction In** – Add stock entries with product search
+- **Transaction Out** – Request stock with approval workflow
+- Role-based approval (Head/Superadmin auto-approve)
+- Transaction history with pagination
 
-Transaction Out – Request stock with approval workflow
+### 👤 **User Management**
+- Role-based access control (Superadmin, Head, Produksi)
+- User profile with avatar upload
+- Change password functionality
+- User management dashboard
 
-Role-based approval (Head/Superadmin auto-approve)
+### 🤖 **AI-Powered Chatbot**
+- Smart inventory assistant for instant queries
+- Natural language processing
+- Query stock, transactions, and user information
+- Time-based greeting (Good Morning/Afternoon/Evening)
 
-Transaction history with pagination
+### 📈 **Reports & Analytics**
+- Stock reports with charts
+- Transaction summaries
+- Export reports to Excel
+- Product category analytics
 
-👤 User Management
-Role-based access control (Superadmin, Head, Produksi)
+### 🔒 **Security Features**
+- JWT authentication
+- Role-based permissions
+- Password hashing with bcrypt
+- Protected API routes
 
-User profile with avatar upload
+### 📱 **PWA Ready**
+- Install as native app
+- Offline support with Service Worker
+- Cached API responses
+- Fast loading and navigation
 
-Change password functionality
+---
 
-User management dashboard
+## 🚀 Tech Stack
 
-🤖 AI-Powered Chatbot
-Smart inventory assistant for instant queries
+| Category | Technology |
+|----------|------------|
+| **Frontend** | React 19.2.8, Vite 6.2.3 |
+| **Styling** | TailwindCSS 3.4.17, Heroicons |
+| **Routing** | React Router DOM 7.4.0 |
+| **State Management** | Context API, React Hook Form |
+| **Charts** | Chart.js, React-ChartJS-2 |
+| **PWA** | Vite PWA Plugin, Workbox |
+| **Backend** | Go 1.21, Gin Framework |
+| **Database** | MySQL 8.0 |
+| **Auth** | JWT, bcrypt |
+| **AI Chatbot** | Ollama (optional) or Smart Fallback |
+| **Excel Export** | Excelize v2 |
 
-Natural language processing
+---
 
-Query stock, transactions, and user information
+## 📊 Database Schema
 
-Time-based greeting (Good Morning/Afternoon/Evening)
-
-📈 Reports & Analytics
-Stock reports with charts
-
-Transaction summaries
-
-Export reports to Excel
-
-Product category analytics
-
-🔒 Security Features
-JWT authentication
-
-Role-based permissions
-
-Password hashing with bcrypt
-
-Protected API routes
-
-📱 PWA Ready
-Install as native app
-
-Offline support with Service Worker
-
-Cached API responses
-
-Fast loading and navigation
-
-🚀 Tech Stack
-Category	Technology
-Frontend	React 19.2.8, Vite 6.2.3
-Styling	TailwindCSS 3.4.17, Heroicons
-Routing	React Router DOM 7.4.0
-State Management	Context API, React Hook Form
-Charts	Chart.js, React-ChartJS-2
-PWA	Vite PWA Plugin, Workbox
-Backend	Go 1.21, Gin Framework
-Database	MySQL 8.0
-ORM/Query	Native SQL with prepared statements
-Auth	JWT, bcrypt
-AI Chatbot	Ollama (optional) or Smart Fallback
-Excel Export	Excelize v2
-Linting	ESLint, Go Vet
-
-
+```sql
+users          - User management with roles (superadmin, head, produksi)
+products       - Product catalog with images
+stock          - Real-time stock tracking
+transaction_in - Stock entry transactions
+transaction_out - Stock exit requests with approval workflow
 # \# screenshots:
 API Golang
 <img width="1918" height="997" alt="image" src="https://github.com/user-attachments/assets/7dd36764-f471-44dd-a5ca-a28aac8ebfd3" />
