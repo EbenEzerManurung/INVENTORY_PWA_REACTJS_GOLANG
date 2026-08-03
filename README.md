@@ -1,6 +1,6 @@
 # 📦 Inventory Management System
 
-> A complete Inventory Management System built with **React.js 19**, **Golang**, and **MySQL** — designed for efficient stock tracking, transaction management, and real-time reporting.
+> A complete Inventory Management System built with **React.js 19**, **API Golang**, and **MySQL** — designed for efficient stock tracking, transaction management, and real-time reporting.
 
 <div align="center">
 
