@@ -104,18 +104,51 @@
 ---
 
 # \# screenshots:
-API Golang
+## API Golang
 <img width="1918" height="997" alt="image" src="https://github.com/user-attachments/assets/7dd36764-f471-44dd-a5ca-a28aac8ebfd3" />
 
-Frontend:REACTJS
+## Frontend:REACTJS
 <img width="681" height="181" alt="image" src="https://github.com/user-attachments/assets/42a0e187-f26f-4bd5-8da3-dda7d526d2b0" />
 
-Form Login
+## Form Login
 <img width="1888" height="1003" alt="image" src="https://github.com/user-attachments/assets/27122792-1a41-40eb-b7c7-62639873c6b8" />
 
-PWA
+## PWA
 <img width="1485" height="724" alt="image" src="https://github.com/user-attachments/assets/85a2542d-d8ca-42f3-b69a-e47e65a61baa" />
 
-Dashboard
+## Dashboard
 <img width="1876" height="999" alt="image" src="https://github.com/user-attachments/assets/3ac40a94-ad2a-4cb6-a6b9-e6d31c9425db" />
+
+## Product
+<img width="1917" height="1000" alt="image" src="https://github.com/user-attachments/assets/831a076e-3e3a-4c04-9e55-88b09955c588" />
+
+## Stock
+<img width="1911" height="937" alt="image" src="https://github.com/user-attachments/assets/a8bbfc52-a356-44fe-ba7e-f5828007e233" />
+
+## Transaction In
+<img width="1902" height="997" alt="image" src="https://github.com/user-attachments/assets/060be246-0bc4-4e8a-accf-a3fabe13ea41" />
+
+## Transaction Out
+<img width="1918" height="967" alt="image" src="https://github.com/user-attachments/assets/ff7e230d-79f7-4d84-a00f-64a59bd6bbe2" />
+
+## Report
+<img width="1918" height="946" alt="image" src="https://github.com/user-attachments/assets/c7f1203a-d14a-460c-b0d8-953a1311d114" />
+<img width="1918" height="1000" alt="image" src="https://github.com/user-attachments/assets/ecc1960f-f6a8-4fa8-80d6-aa685b1cb484" />
+
+## Export excel report
+<img width="1918" height="1021" alt="image" src="https://github.com/user-attachments/assets/63fe449c-1149-45b7-a81c-1f83829d26fe" />
+
+## ChatbotAI
+<img width="1897" height="1029" alt="image" src="https://github.com/user-attachments/assets/d07ecd4a-45aa-4db7-96b9-5b638847d47e" />
+
+## Users
+<img width="1915" height="868" alt="image" src="https://github.com/user-attachments/assets/3e81a311-af67-4d81-8f43-159adfbbcaf6" />
+
+
+
+
+
+
+
+
 
