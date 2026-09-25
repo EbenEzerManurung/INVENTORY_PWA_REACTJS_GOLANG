@@ -153,7 +153,20 @@ This project is licensed under the **MIT License** — see the [LICENSE](https:/
 <img width="1915" height="868" alt="image" src="https://github.com/user-attachments/assets/3e81a311-af67-4d81-8f43-159adfbbcaf6" />
 
 
+## 👨‍💻 Author
 
+**Eben Nezer Manurung**
+Full Stack Developer • Backend Engineer
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EbenEzerManurung)
+
+
+⭐ **If this project helped you, please consider giving it a star!**
+
+
+</div>
+
+<div align="center">
 
 
 
