@@ -103,6 +103,14 @@
 
 ---
 
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](https://tlo.mit.edu/resources/mit-github) file for details.
+
+---
+
 # \# screenshots:
 ## API Golang
 <img width="1918" height="997" alt="image" src="https://github.com/user-attachments/assets/7dd36764-f471-44dd-a5ca-a28aac8ebfd3" />
